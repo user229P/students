@@ -1,0 +1,79 @@
+{% extends "index.html" %}
+{% block head %}
+<style>
+    .course-card {
+      background-color: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    .course-card:hover {
+      transform: translateY(-5px);
+    }
+    .course-card .card-body {
+      padding: 30px;
+    }
+    .course-card .card-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 15px;
+    }
+    .course-card .card-text {
+      color: #666;
+      margin-bottom: 20px;
+    }
+    .course-card .instructor {
+      font-style: italic;
+      color: #888;
+      margin-bottom: 10px;
+    }
+    .course-card .price {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #ff5a5f;
+      margin-bottom: 15px;
+    }
+    .course-card .btn-enroll {
+      background-color: #ff5a5f;
+      border: none;
+      color: #fff;
+      font-weight: bold;
+      border-radius: 25px;
+      padding: 10px 20px;
+      transition: background-color 0.3s ease;
+    }
+    .course-card .btn-enroll:hover {
+      background-color: #ff767c;
+    }
+  </style>
+{% endblock head %}
+
+{% block body %}
+
+<div class="container mt-5">
+    <div class="row">
+      {% if courses %}
+
+      {% for course in courses %}
+      <div class="col-md-4 mb-4">
+        <div class="course-card">
+          <div class="card-body">
+            <h5 class="card-title">{{course.c_title}}</h5>
+            <p class="card-text">{{course.c_description|truncatechars:150}}</p>
+            
+            <p class="card-text price">£{{course.c_price}}</p>
+            <a href="{% url "course_checkout" course.c_id %}" class="btn btn-enroll btn-block">Checkout</a>
+          </div>
+        </div>
+      </div>
+      
+      {% endfor %}
+      {% else %}
+      <h1 class="text-center">No Course Found </h1>
+      {% endif %}
+    </div>
+  </div>
+
+  {% endblock body %}

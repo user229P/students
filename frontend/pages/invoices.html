@@ -1,0 +1,75 @@
+{% extends "index.html" %}
+{% block head %}
+<style>
+    .invoice-table {
+      width: 100%;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .invoice-table th,
+    .invoice-table td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .invoice-table th {
+      background-color: #f5f5f5;
+      color: #333;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .invoice-table tbody tr:hover {
+      background-color: #f9f9f9;
+    }
+    .invoice-table .amount {
+      color: #ff5a5f;
+      font-weight: bold;
+    }
+    .invoice-table .status {
+      color: #4caf50;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .invoice-table .type {
+      color: #333;
+    }
+  </style>
+{% endblock head %}
+
+{% block body %}
+  <div class="container mt-5">
+
+    {% if invoices %}
+    <h4 class="text-center">Your Invoices</h4>
+    <table class="table invoice-table">
+      <thead>
+        <tr>
+          <th scope="col">Reference</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Status</th>
+          <th scope="col">Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for invoice in invoices %}
+        <tr>
+          <td>{{invoice.reference}}</td>
+          <td class="amount">${{invoice.amount}}</td>
+          {% if invoice.status == 'CANCELLED' %}
+          <td class="status text-danger">{{invoice.status}}</td>
+          {% else %}
+          <td class="status">{{invoice.status}}</td>
+          {% endif %}
+          
+          <td class="type">{{invoice.type}}</td>
+        </tr>
+        {% endfor %}
+        
+      </tbody>
+    </table>
+    {% else %}
+    <h4 class="text-center my-5">You have no invoices</h4>
+    {% endif %}
+  </div>
+{% endblock body %}

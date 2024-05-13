@@ -1,0 +1,102 @@
+{% extends "index.html" %}
+{% block head %}
+<style>
+  body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+  }
+
+  .form-signin {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .form-signin:hover {
+    transform: translateY(-5px);
+  }
+
+  .form-signin h1 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #333;
+    text-align: center;
+  }
+
+  .form-floating input {
+    height: 50px;
+    border: 2px solid #ced4da;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1.1rem;
+    transition: border-color 0.3s ease;
+  }
+
+  .form-floating input:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+
+  .form-floating label {
+    font-size: 1rem;
+    color: #6c757d;
+  }
+
+  .form-signin .btn-primary {
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #fff;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  .signup-tag {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .signup-tag p {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 0;
+  }
+  .signup-tag a {
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  .signup-tag a:hover {
+    color: #0056b3;
+  }
+</style>
+{% endblock head %}
+{% block body %}
+<main class="form-signin">
+    <form action="{% url "loginUser" %}" method="post">
+      {% csrf_token %}
+      <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+      <div class="form-floating mb-2">
+        <input type="text" class="form-control" name="username" id="floatingInput" placeholder="name@example.com" required>
+        <label for="floatingInput">Username</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password" required>
+        <label for="floatingPassword">Password</label>
+      </div>
+      <button class="btn btn-primary w-100 mt-3" type="submit">Sign in</button>
+      <div class="signup-tag">
+        <p>Don't have an account? <a href="{% url 'signupUser' %}">Sign up</a></p>
+      </div>
+    </form>
+</main>
+{% endblock body %}

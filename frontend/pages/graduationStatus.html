@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+{% block head %}   {% endblock head %}
+
+{% block body  %}
+
+<div class="container mt-5">
+    <div class="card shadow">
+        <div class="card-body">
+            <h5 class="card-title text-center mb-4">Graduation Status</h5>
+    
+                <div class="alert alert-warning text-center" role="alert">
+                    <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                    You need to pay all of your outstanding invoices to become eligible for graduation.
+                </div>
+                
+
+            <div class="d-flex justify-content-center align-items-center">
+                <div class="graduation-status">
+                    <p class="card-text text-center mb-0">Your current graduation status is:</p>
+                    <h3 class="card-title text-center mb-0">{{ graduation_status }}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock body  %}

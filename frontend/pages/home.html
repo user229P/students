@@ -1,0 +1,93 @@
+{% extends "index.html" %}
+{% block head %}
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+  }
+
+  .welcome-message {
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  .welcome-message h1 {
+    font-size: 3rem;
+    color: #007bff;
+    margin-bottom: 20px;
+  }
+
+  .instruction-points {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+  }
+
+  .instruction-point {
+    width: calc(50% - 15px);
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .instruction-point:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .instruction-point h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  .instruction-point p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.5;
+  }
+
+  /* Custom styling */
+  .instruction-point:nth-child(odd) {
+    background-color: #f8f9fa;
+  }
+
+  .instruction-point:nth-child(even) {
+    background-color: #e9ecef;
+  }
+
+  .welcome-message p {
+    font-size: 1.2rem;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  .warning-message {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #ff6347;
+  }
+</style>
+{% endblock head %}
+
+{% block body %}
+<div class="container">
+  <!--<div class="warning-message">
+    <p>Please start your finance and library modules first</p>
+  </div>-->
+
+  <div class="welcome-message">
+    <h1>Welcome to Student Portal</h1>
+    <p>We're excited to have you onboard! Explore our vibrant community of learners, discover courses that ignite your passions, and embark on a journey of lifelong learning.</p>
+  </div>
+
+  
+</div>
+{% endblock body %}

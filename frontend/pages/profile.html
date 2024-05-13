@@ -1,0 +1,80 @@
+{% extends "index.html" %}
+{% block head %}
+<style>
+    .profile-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background-color: #f5f5f5;
+      border-radius: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .profile-heading {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 40px;
+      color: #333;
+      text-align: center;
+    }
+    .profile-info {
+      margin-bottom: 30px;
+    }
+    .profile-info p {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 15px;
+    }
+    .profile-info p strong {
+      color: #333;
+    }
+    .update-profile-btn {
+      display: block;
+      width: 100%;
+      max-width: 200px;
+      margin: 0 auto;
+      padding: 10px 20px;
+      background-color: #ff5a5f;
+      color: #fff;
+      font-weight: bold;
+      text-align: center;
+      border: none;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    .update-profile-btn:hover {
+      background-color: #ff767c;
+    }
+    .library-info {
+      background-color: #fff;
+      border-radius: 20px;
+      padding: 20px;
+    }
+  </style>
+{% endblock head %}
+
+{% block body %}
+
+<div class="profile-container mt-5">
+    <h2 class="profile-heading">User Profile</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="profile-info">
+          <p><strong>Username:</strong> {{user.username}}</p>
+          <p><strong>Full Name:</strong> {{user.first_name}} {{user.last_name}}</p>
+          <p><strong>Student ID:</strong> {{user.student_id}}</p>
+          <p><strong>Email:</strong> {{user.email}}</p>
+          <a href="{% url 'update_profile' %}" class="update-profile-btn">Update Profile</a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="library-info">
+          <h2 class="profile-heading">Library Account</h2>
+          <p><strong>Student ID:</strong> {{user.student_id}}</p>
+          <p><strong>Library Password:</strong> 000000 <p>
+        </div>
+      </div>
+    </div>
+  </div
+
+{% endblock body %}
